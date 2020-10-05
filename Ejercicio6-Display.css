@@ -1,0 +1,47 @@
+body, span, p, a{
+    border: thin solid #442A5D;
+}
+
+#negrita{
+    display: block;
+}
+
+span+p{
+    display: inline;
+}
+
+span+p+p {
+    display: inline;
+}
+
+span+p+p+p+p,span+p+p+p+p+p{
+    position: relative;
+    left: 40px;
+    display: list-item;
+    list-style-position: outside;
+    list-style: square;
+}
+
+span+p+p+p+p+p+p+p {
+    display: none;
+}
+
+.bloqueenlinea{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+span+p+p+p+p+p+p+p+p+p,span+p+p+p+p+p+p+p+p+p+p,span+p+p+p+p+p+p+p+p+p+p+p {
+    display: table-cell;
+}
+
+span+p+p+p+p+p+p+p+p+p+p+p+p{
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+span+p+p+p+p+p+p+p+p+p+p+p+p+p{
+    position: static;
+}
