@@ -1,0 +1,51 @@
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #123D43;
+	text-decoration: underline;
+	text-align: center;
+	cursor: text;
+	text-shadow: 3px 3px 2px #789498;
+}
+ul.redes li {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	/* Estilos de li para cumplir las especifiaciones */
+	color: #442A5D;
+}
+p.titulo {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	background-color: #F9DDC3;
+	color: #6E431C;
+}
+
+#otraasignatura {
+	background-color: #CEA885;
+	width: 6em;
+	text-align: center;
+	height: 1.5em;
+	vertical-align: middle;
+}
+a[href="estiloscomunes2.html"]:hover{
+	font-weight: bold;
+	color: #FFF;
+}
+
+ul>li{
+	list-style: circle;
+	font-style: italic;
+	color: #4d1780;
+}
+
+ol>li{
+	list-style-type: lower-alpha;
+	list-style-position: outside;
+	background-color:#dbc8b1;
+	color: #664629;
+}
+
+p{	
+	color: #664629;
+	background-color: #dbc8b1;
+}
