@@ -1,0 +1,25 @@
+p:first-of-type {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#consejo {
+    background-color: khaki;
+}
+
+#textolinea { 
+    text-transform: uppercase;
+    background-color: lightsalmon;
+}
+
+h3 {
+    background-color: chocolate;
+    color: wheat;
+}
+
+.clase {background-color: darkseagreen;}
+
+#idparaestilo {
+    letter-spacing: 3px;
+    background-color: thistle;
+}
