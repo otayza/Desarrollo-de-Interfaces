@@ -1,0 +1,22 @@
+body{
+    width: 5000px;
+    height: 5000px;
+    background-image: url("madrid.jpg");
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+    background-position-x: center;
+    background-attachment: fixed;
+}
+
+div{
+    background-image: url("logo.png");
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+    box-shadow: 10px 10px 2px black;
+}
+
+img{
+    height: 300px;
+    width: 300px;
+}
