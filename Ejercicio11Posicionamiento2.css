@@ -1,0 +1,42 @@
+#fija {
+    position: fixed;
+    bottom:0;
+    right: 0;
+}
+
+#estatica_exp{
+    position: static;
+}
+#estatica_imp{
+    position: static;
+}
+#absoluta1{
+    position: absolute;
+    bottom: 95px;
+    right: 60px;
+}
+
+#absoluta2 {
+    position: absolute;
+    left:150px;
+    top:280px;
+    z-index: -5;
+}
+
+#absoluta3 {
+    position: absolute;
+    left: 25px;
+    top: 305px;
+}
+
+#relativa{
+    position: relative;
+    top:100px;
+    left: 40px;
+}
+
+#sticky {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+}
