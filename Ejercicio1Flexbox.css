@@ -1,0 +1,25 @@
+.contenedor{
+    background-color: paleturquoise;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 1000px;
+    align-items: flex-end;
+}
+
+.primero,.segundo,.tercero,.cuarto,.quinto{
+    height: 50px;
+    width: 150px;
+    background-color: orange;
+    text-align: center;
+}
+
+.contenedor2{
+    background-color: paleturquoise;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 1000px;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+}
