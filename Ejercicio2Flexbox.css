@@ -1,0 +1,18 @@
+.contenedor{
+    height: 500px;
+    width: 750px;
+    background-color: aquamarine;
+    display: inline-flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.primero,.segundo,.tercero,.cuarto,.quinto{
+    height: 60px;
+    width: 120px;
+    background-color: rgb(221, 143, 79);
+    text-align: center;
+}
+
