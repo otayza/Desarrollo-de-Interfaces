@@ -1,0 +1,61 @@
+#posicionamiento1{
+    position: absolute;
+    top: 50%;
+}
+
+#posicionamiento2{
+    position: absolute;
+    right: 50%;
+}
+
+#posicionamiento3{
+    position: absolute;
+    top: 0%;
+    left: 0;
+}
+
+#posicionamiento4{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#posicionamiento5{
+    position: absolute;
+    top:50%;
+    left: 50%;
+}
+
+#posicionamiento6{
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+}
+
+#posicionamiento7{
+    position: absolute;
+    top:50%;
+    right: 0;
+}
+
+#posicionamiento8{
+    position: absolute;
+    top: 70px;
+    left: 100px;
+}
+
+#posicionamiento9{
+    position: absolute;
+    top:25%;
+    right: 25%;
+}
+
+#posicionamiento10{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    right: 50%;
+    width: 28em;
+    height: 28em;
+    transform: translate(-50%,-50%);
+}
