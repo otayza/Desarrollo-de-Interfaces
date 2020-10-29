@@ -1,0 +1,25 @@
+img:nth-child(1),img:nth-child(2),img:nth-child(3),img:nth-child(4){
+    float: right;
+}
+
+.izquierda,.negrita:nth-child(2){
+    display: inline-block;
+    float: left;
+}
+
+.derechaafectado:nth-child(1),.negrita:nth-child(3){
+    float: right;
+    clear: both;
+}
+
+span:nth-child(6){
+    clear: both;
+}
+
+.parrafonoafectado{
+    clear: both;
+}
+
+.derechanoafectado:nth-child(2){
+    clear: both;
+}
