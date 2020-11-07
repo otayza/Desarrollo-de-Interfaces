@@ -1,0 +1,249 @@
+
+.barra1{
+    display: flex;
+    width: 100%;
+    height: 9%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border: unset;
+}
+
+#titulo{
+    width: 40%;
+    text-align: center;
+    color: #3F7FBF;
+    border: unset;
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 10px;
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+.barra-nav {
+    width: 50%;
+    list-style: none;
+    border: unset;
+    text-align: center;
+    font-size: 13px;
+}
+
+.barra-nav li{
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    margin: -3px;
+    width: 50px;
+    height: 25px;
+    color: white;
+    background-color: #3F7FBF;
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+.barra2 {
+    background-color: #3F7FBF;
+    border: unset;
+    width: 100%;
+    height: 6%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.barra-nav2 {
+    width: 39%;
+    border: unset;
+    list-style: none;
+    text-align: center;
+    background-color: #3F7FBF;
+    position: relative;
+    bottom:15px;
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+.barra-nav2 li{
+    border: 1px solid white;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    display: inline-block;
+    text-align: center;
+    margin: -3px;
+    width: 100px;
+    height: 25px;
+    color: white;
+}
+
+.enunciado-barra{
+    width: 41%;
+    padding-top: 15px;
+    text-align: center;
+    text-align-last: center;
+    color: white;
+    border: unset;
+    font-style: normal;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.bloque-img1{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    left: 12.5%;    
+    height: 55%;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bloque-img2{
+    position: relative;
+    left: 12.5%;    
+    height: 25%;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bloque-img2 div{
+    width: 32%;
+}
+
+.img11{
+    height:50%;
+    width: 100%;
+    background-image: url("imagenes/foto1.jpg");
+    background-size: cover;
+}
+
+.img44{
+    height:55%;
+    width: 100%;
+    background-image: url("imagenes/foto2.jpg");
+    background-size: cover;
+}
+
+.img2{
+    background-image: url("imagenes/foto33.jpg");
+    background-size: cover;
+}
+
+.subbloque{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+
+}
+
+.subbloque > div{
+    width: 100%;
+    height: 48%;
+}
+
+.img3{
+    background-image: url("Imagenes/foto4.jpg");
+    background-size: cover;
+}
+
+.img5{
+    background-image: url("imagenes/foto5.jpg");
+    background-size: cover;
+}
+
+.img6{
+    background-image: url("imagenes/foto6.jpg");
+    background-size: cover;
+}
+
+.img7{
+    background-image: url("imagenes/foto7.jpg");
+    background-size: cover;
+    height: 95%;
+}
+
+li:hover{
+    background-color: blue;
+}
+
+p{
+    margin: 5px;
+}
+
+p:nth-child(1){
+    color: black;
+    font-style: normal;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+p:nth-child(2){
+    font-size: 15px;
+    color: #3F7FBF;
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+p:nth-child(3){
+    font-weight: bold;
+    color: #3F7FBF;
+    font-style: normal;
+    font-family: sans-serif;
+    margin: 8px;
+}
+
+.img1{
+    border: 1px solid grey;
+    width: 25%;
+}
+
+.img4{
+    border: 1px solid grey;
+    width: 30%;
+}
+
+.subbloque-img4 {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    padding-top: 15px;
+}
+
+.subbloque-img4 div{
+    width: 50%;
+    height: 100%;
+}
+
+.desplegables{
+    display: flex;
+    justify-content: center;
+}
+
+.desplegables div div{
+    height: 0px;
+}
+
+.flecha{
+    width: 75%;
+    height: 5%;
+    background-color: red;
+    position: relative;
+    top: 6px;
+    left: 12.5%;
+    background-image: url("imagenes/chevron-abajo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.flecha:hover{
+    background-color: rgb(243, 74, 74);
+}
+
+.barra-nav li:nth-last-child(1){
+    background-color: rgb(12, 12, 114);
+    width: 40px;
+}
+
+
