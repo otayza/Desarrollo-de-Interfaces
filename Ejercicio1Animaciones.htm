@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            div[id="0"]{
+                font-weight: bold;
+                font-size: 1.25rem;
+            }
+
+            div[id="1"]{
+                background-color: yellow;
+            }
+
+            div[id="2"]{
+                background-color: purple;
+            }
+
+            div[id="3"]{
+                background-color: orange;
+            }
+
+            div[id="4"]{
+                background-color: green;
+            }
+
+            div{
+                width: 20%;
+                
+            }           
+
+        </style>
+    </head>
+    <body>
+        <script>
+            arreglo=["Pincha en cualquiera de los textos","primero","segundo","tercero","cuarto"];
+            contador=0;
+            
+            function intervalo(){
+                int1=setInterval(function(){
+                caja=document.createElement("div");
+                caja.innerHTML=arreglo[contador];
+                caja.id=contador;
+                caja.onclick=function(){
+                    document.body.innerHTML="";
+                    contador=0;
+                    intervalo();
+                }
+                contador++;
+                document.body.append(caja);
+                document.body.append(document.createElement("br"));
+                if(contador==arreglo.length){
+                    clearInterval(int1);
+                }
+                },1000);
+            }
+
+            window.onload=intervalo;
+            
+
+        </script>
+    </body>
+</html>
