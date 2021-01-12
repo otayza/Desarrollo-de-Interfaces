@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Animaciones. Ejercicio 2</title>
+        <style>
+            div:first-of-type{
+                width: 10%;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            /*
+                Creación de elementos del DOM
+            */
+            texto=document.createElement("div");
+            document.body.append(texto);
+            texto.innerHTML="Número de segundos";
+
+            cuadroTexto=document.createElement("input");
+            cuadroTexto.type="number";
+            cuadroTexto.min="0";
+            document.body.append(cuadroTexto);
+
+            document.body.append(document.createElement("br"));
+            document.body.append(document.createElement("br"));
+
+            texto2=document.createElement("div");
+            texto2.innerHTML="(Contador)";
+            document.body.append(texto2);
+
+            document.body.append(document.createElement("br"));
+
+            boton1=document.createElement("button");
+            boton1.innerHTML="Iniciar";
+            document.body.append(boton1);
+            boton1.onclick=function(){
+                cuentaRegresiva(cuadroTexto.value);
+            };
+            
+            boton2=document.createElement("button");
+            boton2.innerHTML="Parar";
+            boton2.onclick=parar;
+            document.body.append(boton2);
+            
+            /*
+                Funcion que realiza la cuenta atrás mediante el metodo setInterval
+            */
+
+            function cuentaRegresiva(segundos){
+                if(segundos<0){
+                    texto2.innerHTML="";
+                    texto2.style.color="black";
+                    texto2.innerHTML="El número debe ser positivo (mayor que 0)";
+                }else{
+                int1=setInterval(function(){
+                    texto2.innerHTML="";
+                    texto2.innerHTML=segundos;
+                    if(segundos==0){
+                        texto2.style.color="red";
+                        clearInterval(int1);
+                    }
+                    segundos--;
+                },750);
+            }
+            }
+
+            function parar(){
+                clearInterval(int1);
+            }
+            
+        </script>
+    </body>
+</html>
