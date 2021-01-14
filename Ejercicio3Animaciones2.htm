@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Animaciones. Ejercicio 3</title>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            transition: all 1s;
+            width: 50%;
+            text-align: justify;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <script src="./my-JQuery.js" type="text/javascript"></script>
+    <script>
+        
+        ele1=document.createElement("div");
+        document.body.append(ele1);
+        ele1.innerHTML="<strong>Texto para modificar visibilidad</strong><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies ipsum risus, in volutpat leo convallis vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin tellus tortor, hendrerit et libero quis, volutpat iaculis arcu. Cras turpis ante, blandit eu pulvinar non, tempor vel tellus. Integer vel tempor nunc. In eu nulla et sem facilisis faucibus. In convallis augue vulputate enim mattis bibendum at eu leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi ut egestas mi, quis ullamcorper ligula. Ut dignissim egestas porta. Praesent mollis purus odio. Maecenas ac condimentum metus, eget vehicula lorem. Cras ut maximus diam, ut porttitor metus. <br>";
+
+        cuadro1=document.createElement("input");
+        cuadro1.type="text";
+        cuadro1.placeholder="Número de segundos";
+        document.body.append(cuadro1);
+        
+        boton1=document.createElement("button");
+        boton1.innerHTML="Hacer texto invisible";
+        boton1.onclick=function(){
+            numero=cuadro1.value;
+            fadeOut(ele1,numero);
+        }
+        document.body.append(boton1);
+        
+        boton2=document.createElement("button");
+        boton2.innerHTML="Hacer texto visible";
+        boton2.onclick=function(){
+            numero=cuadro1.value;
+            fadeIn(ele1,numero);
+        }
+        document.body.append(boton2);
+    </script>
+</body>
+</html>
