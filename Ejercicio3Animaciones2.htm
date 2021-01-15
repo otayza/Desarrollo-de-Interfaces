@@ -27,7 +27,7 @@
         boton1=document.createElement("button");
         boton1.innerHTML="Hacer texto invisible";
         boton1.onclick=function(){
-            numero=cuadro1.value;
+            numero=parseFloat(cuadro1.value);
             fadeOut(ele1,numero);
         }
         document.body.append(boton1);
@@ -35,7 +35,7 @@
         boton2=document.createElement("button");
         boton2.innerHTML="Hacer texto visible";
         boton2.onclick=function(){
-            numero=cuadro1.value;
+            numero=parseFloat(cuadro1.value);
             fadeIn(ele1,numero);
         }
         document.body.append(boton2);

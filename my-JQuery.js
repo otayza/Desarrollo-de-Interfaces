@@ -1,6 +1,6 @@
 
 function fadeIn(elemento,duracion,callback){
-    if(duracion==null||duracion==0){
+    if(duracion==null||duracion==0||isNaN(duracion)){
         elemento.style.opacity="1";
     }else{
         var opacidad=parseFloat(elemento.style.opacity);
@@ -16,11 +16,11 @@ function fadeIn(elemento,duracion,callback){
 }
 
 function fadeOut(elemento,duracion,callback){
-    if(duracion==null||duracion==0){
+    if(duracion==null||duracion==0||isNaN(duracion)){
         elemento.style.opacity="0";
     }else{
-        var opacidad=parseFloat(ele1.style.opacity);
-        var decremento=opacidad/duracion;
+        var opacidad=elemento.style.opacity;
+        var decremento=(opacidad/duracion);
         int2=setInterval(function(){
             opacidad=opacidad-decremento;
             elemento.style.opacity=opacidad;
