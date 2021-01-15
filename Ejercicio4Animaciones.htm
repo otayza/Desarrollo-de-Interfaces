@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Animaciones. Ejercicio 3</title>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    ele1=document.createElement("div");
+        document.body.append(ele1);
+        //ele1.innerHTML="<strong>Texto para modificar altura</strong><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies ipsum risus, in volutpat leo convallis vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin tellus tortor, hendrerit et libero quis, volutpat iaculis arcu. Cras turpis ante, blandit eu pulvinar non, tempor vel tellus. Integer vel tempor nunc. In eu nulla et sem facilisis faucibus. In convallis augue vulputate enim mattis bibendum at eu leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi ut egestas mi, quis ullamcorper ligula. Ut dignissim egestas porta. Praesent mollis purus odio. Maecenas ac condimentum metus, eget vehicula lorem. Cras ut maximus diam, ut porttitor metus. <br>";
+        ele1.style.height="50%";
+        ele1.style.width="50%";
+        ele1.style.backgroundImage="url('https://www.lavanguardia.com/files/image_449_220/uploads/2020/11/09/5fbb928f7fa47.jpeg')";
+        ele1.style.backgroundSize="cover";
+        ele1.style.backgroundRepeat="no-repeat";
+        cuadro1=document.createElement("input");
+        cuadro1.type="text";
+        cuadro1.placeholder="Número de segundos";
+        document.body.append(cuadro1);
+        
+        boton1=document.createElement("button");
+        boton1.innerHTML="Reducir altura";
+        boton1.onclick=function(){
+            numero=parseFloat(cuadro1.value);
+            slideUp(ele1,numero);
+        }
+        document.body.append(boton1);
+       
+        boton2=document.createElement("button");
+        boton2.innerHTML="Aumentar altura";
+        boton2.onclick=function(){
+            numero=parseFloat(cuadro1.value);
+            slideDown(ele1,numero);
+        }
+        document.body.append(boton2);
+
+        function slideDown(elemento,duracion,callback){
+            if(isNaN(duracion)||duracion==0){
+                elemento.style.height="50%";
+            }else{
+                var altura=elemento.style.height.substr(0,1);
+                var incremento=50/duracion;
+                int1=setInterval(function(){
+                    altura=altura+incremento;
+                    elemento.style.height=altura+"%";
+            },1000);
+    }
+    }
+        function slideUp(elemento,duracion,callback){
+            if(duracion==0||isNaN(duracion)){
+                elemento.style.height="0%";
+            }else{
+                var altura=ele1.style.height.substr(0,2);
+                var decremento=altura/duracion;
+                int2=setInterval(function(){
+                    altura=altura-decremento;
+                    elemento.style.height=altura+"%";
+                },1000);
+            }
+        }
+
+        document.body.append(document.createElement("br"));
+
+        document.body.append(document.createElement("div").innerHTML="El ejercicio funciona sin añadir segundos. Reducir altura no funciona con numeros impares. Aumentar altura no funciona correctamente. No uso fichero externo de JS. Seguiré trabajando en ello. ")
+    </script>
+</body>
+</html>
+
