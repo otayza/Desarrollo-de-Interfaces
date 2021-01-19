@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>Animaciones. Ejercicio 5</title>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            width: 50%;
+            text-align: justify;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <script src="./jquery-3.5.1.js" type="text/javascript"></script>
+    <script>
+        ele1=document.createElement("div");
+        document.body.append(ele1);
+        ele1.innerHTML="<strong>Texto para modificar visibilidad</strong><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies ipsum risus, in volutpat leo convallis vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin tellus tortor, hendrerit et libero quis, volutpat iaculis arcu. Cras turpis ante, blandit eu pulvinar non, tempor vel tellus. Integer vel tempor nunc. In eu nulla et sem facilisis faucibus. In convallis augue vulputate enim mattis bibendum at eu leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi ut egestas mi, quis ullamcorper ligula. Ut dignissim egestas porta. Praesent mollis purus odio. Maecenas ac condimentum metus, eget vehicula lorem. Cras ut maximus diam, ut porttitor metus. <br>";
+        ele1.id="ele1";
+    
+        cuadro1=document.createElement("input");
+        cuadro1.type="text";
+        cuadro1.placeholder="Número de milisegundos";
+        document.body.append(cuadro1);
+        
+        boton1=document.createElement("button");
+        boton1.innerHTML="Hacer texto invisible";
+        boton1.onclick=function(){
+            segundos=parseInt(cuadro1.value);
+            if(isNaN(segundos)){
+                $("#ele1").fadeOut();
+            }else{
+                $("#ele1").fadeOut(segundos);
+            }
+        }
+        document.body.append(boton1);
+        
+        boton2=document.createElement("button");
+        boton2.innerHTML="Hacer texto visible";
+        boton2.onclick=function(){
+            segundos=parseInt(cuadro1.value);
+            if(isNaN(segundos)){
+                $("#ele1").fadeIn();
+            }else{
+                $("#ele1").fadeIn(segundos);
+            }
+        }
+        document.body.append(boton2);
+
+        document.body.append(document.createElement("br"));
+        document.body.append(document.createElement("br"));
+
+        ele2=document.createElement("div");
+        document.body.append(ele2);
+        ele2.style.height="50%";
+        ele2.style.width="50%";
+        ele2.style.backgroundImage="url('https://www.lavanguardia.com/files/image_449_220/uploads/2020/11/09/5fbb928f7fa47.jpeg')";
+        ele2.style.backgroundSize="cover";
+        ele2.style.backgroundRepeat="no-repeat";
+        ele2.id="ele2";
+        cuadro2=document.createElement("input");
+        cuadro2.type="text";
+        cuadro2.placeholder="Número de milisegundos";
+        document.body.append(cuadro2);
+        
+        boton3=document.createElement("button");
+        boton3.innerHTML="Reducir altura";
+        boton3.onclick=function(){
+            segundos=parseInt(cuadro2.value);
+            if(isNaN(segundos)){
+                $("#ele2").slideUp();
+            }else{
+                $("#ele2").slideUp(segundos);
+            }
+        }
+        document.body.append(boton3);
+       
+        boton4=document.createElement("button");
+        boton4.innerHTML="Aumentar altura";
+        boton4.onclick=function(){
+            segundos=parseInt(cuadro2.value);
+            if(isNaN(segundos)){
+                $("#ele2").slideDown();
+            }else{
+                $("#ele2").slideDown(segundos);
+            }
+        }
+        document.body.append(boton4);
+    </script>
+</body>
+</html>
