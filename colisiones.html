@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Ejemplo de animación con colisiones</title>
+	
+	<link rel="stylesheet" href="colisiones.css">
+</head>
+<body>
+	<div id="container">
+		<button id="left">&laquo;</button> 
+		<button id="right">&raquo;</button>
+		<button id="top">&laquo;</button> 
+		<button id="bottom">&laquo;</button>
+		<input type="number" value="50" id="mov"></input>
+		<div class="block"><span id="texto">Pincha aquí también<span></div>
+		<div class="cuadrado"></div>
+	</div>
+	<script>
+		var izq=document.querySelector("#left");
+		var der=document.querySelector("#right");
+		var arr=document.querySelector("#top");
+		var aba=document.querySelector("#bottom");
+		var bloque=document.querySelector(".block");
+		posicion=bloque.getBoundingClientRect();
+		var barra=document.getElementById("mov");
+		console.log(posicion.top, posicion.right, posicion.bottom, posicion.left);
+		izq.onclick=function(){
+			movimiento=mover();
+			posicionf=parseInt(posicion.left)-movimiento;
+			bloque.style.left=posicionf+"px";
+			posicion=bloque.getBoundingClientRect();
+		}
+
+		der.onclick=function(){
+			movimiento=mover();
+			posicionf=parseInt(posicion.left)+movimiento;
+			bloque.style.left=posicionf+"px";
+			posicion=bloque.getBoundingClientRect();
+		}
+
+		arr.onclick=function(){
+			movimiento=mover();
+			posicionf=parseInt(posicion.top)-movimiento;
+			bloque.style.top=posicionf+"px";
+			posicion=bloque.getBoundingClientRect();
+		}
+
+		aba.onclick=function(){
+			movimiento=mover();
+			posicionf=parseInt(posicion.top)+movimiento;
+			bloque.style.top=posicionf+"px";
+			posicion=bloque.getBoundingClientRect();
+		}
+
+
+		function mover(){
+			desplazamiento=parseFloat(barra.value);
+			if(isNaN(desplazamiento)||desplazamiento==0){
+				window.alert("Escriba un número mayor que 0 en el cuadro de texto");
+			}else{
+				return desplazamiento;
+			}
+		}
+	</script>
+</body>
+</html>
+
