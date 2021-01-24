@@ -17,51 +17,84 @@
 		<div class="cuadrado"></div>
 	</div>
 	<script>
-		var izq=document.querySelector("#left");
-		var der=document.querySelector("#right");
-		var arr=document.querySelector("#top");
-		var aba=document.querySelector("#bottom");
-		var bloque=document.querySelector(".block");
+		bloque=document.querySelector(".block");
+		areaTexto=document.querySelector("#mov");
 		posicion=bloque.getBoundingClientRect();
-		var barra=document.getElementById("mov");
-		console.log(posicion.top, posicion.right, posicion.bottom, posicion.left);
-		izq.onclick=function(){
-			movimiento=mover();
-			posicionf=parseInt(posicion.left)-movimiento;
-			bloque.style.left=posicionf+"px";
-			posicion=bloque.getBoundingClientRect();
-		}
+		cuadrado=document.querySelector(".cuadrado");
+		posicionCuadrado=cuadrado.getBoundingClientRect();
 
-		der.onclick=function(){
-			movimiento=mover();
-			posicionf=parseInt(posicion.left)+movimiento;
-			bloque.style.left=posicionf+"px";
-			posicion=bloque.getBoundingClientRect();
-		}
-
-		arr.onclick=function(){
-			movimiento=mover();
-			posicionf=parseInt(posicion.top)-movimiento;
-			bloque.style.top=posicionf+"px";
-			posicion=bloque.getBoundingClientRect();
-		}
-
-		aba.onclick=function(){
-			movimiento=mover();
-			posicionf=parseInt(posicion.top)+movimiento;
-			bloque.style.top=posicionf+"px";
-			posicion=bloque.getBoundingClientRect();
-		}
-
-
-		function mover(){
-			desplazamiento=parseFloat(barra.value);
-			if(isNaN(desplazamiento)||desplazamiento==0){
-				window.alert("Escriba un número mayor que 0 en el cuadro de texto");
+		document.querySelector("#left").onclick=function(){
+			if(isNaN(areaTexto.value)||areaTexto.value==0){
+				window.alert("Escriba un número mayor que 0");
 			}else{
-				return desplazamiento;
+				moverIzquierda(parseInt(areaTexto.value));
 			}
 		}
+
+		document.querySelector("#right").onclick=function(){
+			if(isNaN(areaTexto.value)||areaTexto.value==0){
+				window.alert("Escriba un número mayor que 0");
+			}else{
+				moverDerecha(parseInt(areaTexto.value));
+			}
+		}
+
+		document.querySelector("#bottom").onclick=function(){
+			if(isNaN(areaTexto.value)||areaTexto.value==0){
+				window.alert("Escriba un número mayor que 0");
+			}else{
+				moverAbajo(parseInt(areaTexto.value));
+			}
+		}
+
+		document.querySelector("#top").onclick=function(){
+			if(isNaN(areaTexto.value)||areaTexto.value==0){
+				window.alert("Escriba un número mayor que 0");
+			}else{
+				moverArriba(parseInt(areaTexto.value));
+			}
+		}
+
+		function moverArriba(distancia){
+			posicion=bloque.getBoundingClientRect();
+			nuevaPosicion=parseInt(posicion.top)-5-distancia;
+			bloque.style.top=nuevaPosicion+"px";
+			posicionarDentro(bloque);
+		}
+
+		function moverAbajo(distancia){
+			posicion=bloque.getBoundingClientRect();
+			nuevaPosicion=parseInt(posicion.top)-5+distancia;
+			bloque.style.top=nuevaPosicion+"px";
+			posicionarDentro(bloque);
+		}
+
+		function moverIzquierda(distancia){
+			posicion=bloque.getBoundingClientRect();
+			nuevaPosicion=parseInt(posicion.left)-5-distancia;
+			bloque.style.left=nuevaPosicion+"px";
+			posicionarDentro(bloque);
+		}
+		
+		function moverDerecha(distancia){
+			posicion=bloque.getBoundingClientRect();
+			nuevaPosicion=parseInt(posicion.left)-5+distancia;
+			bloque.style.left=nuevaPosicion+"px";
+			posicionarDentro(bloque);
+		}
+
+		function posicionarDentro(ele){
+			posicion=ele.getBoundingClientRect();
+			console.log(posicionCuadrado.top,posicion.top&&posicion.left>posicionCuadrado.left&&posicion.right<posicionCuadrado.right&&posicion.bottom<posicionCuadrado.bottom);
+			if(posicionCuadrado.top,posicion.top&&posicion.left>posicionCuadrado.left&&posicion.right<posicionCuadrado.right&&posicion.bottom<posicionCuadrado.bottom){
+				ele.style.backgroundColor="green";
+				ele.innerHTML="";
+			}else{
+				ele.style.backgroundColor="greenyellow";
+				ele.innerHTML="Pincha aquí también";
+			}
+		}
+		
 	</script>
 </body>
 </html>
