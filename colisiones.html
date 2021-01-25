@@ -18,9 +18,30 @@
 	</div>
 	<script>
 		bloque=document.querySelector(".block");
+		bloque.draggable="yes";
+		document.querySelector("#container").ondragover=function(e){  
+                e.preventDefault();
+            }
+                
+		document.querySelector("#container").ondrop=function(e){
+            var id=e.dataTransfer.getData("content");
+            e.target.append(document.querySelector(".block"));
+			}
+			
+		bloque.ondragstart=function(e){
+            e.dataTransfer.setData("content",e.target.id);
+            }
 		areaTexto=document.querySelector("#mov");
 		posicion=bloque.getBoundingClientRect();
 		cuadrado=document.querySelector(".cuadrado");
+		cuadrado.ondragover=function(e){  
+                e.preventDefault();
+            }
+                
+		cuadrado.ondrop=function(e){
+            var identificador=e.dataTransfer.getData("content");
+            e.target.append(document.querySelector(identificador));
+			}
 		posicionCuadrado=cuadrado.getBoundingClientRect();
 
 		document.querySelector("#left").onclick=function(){
