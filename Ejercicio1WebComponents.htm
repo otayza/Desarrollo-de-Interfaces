@@ -4,15 +4,19 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <wc-blink></wc-blink>
+        <wc-blink id="componente"></wc-blink>
 
         <script>
             class WcBlink extends HTMLElement{
                 constructor (baseColor, alternativeColor, changeInterval){
                     super();
-                    this.baseColor="inherit";
-                    this.alternativeColor="transparent";
-
+                    /*if(baseColor==null||alternativeColor==null){
+                        this.baseColor="inherit";
+                        this.alternativeColor="transparent";
+                    }else{*/
+                        this.baseColor="green";
+                        this.alternativeColor="red";
+                    //}
                     this.textContent="Hola mundo";
                     var obj=this;
 
@@ -24,10 +28,19 @@
                         }
                     },1000);
                 }
+
+                set setBaseColor(color){
+                    this.baseColor=color;
+                }
+
+                set setAlternativeColor(color){
+                    this.alternativeColor=color;
+                }
             }
 
 
             customElements.define("wc-blink",WcBlink);
+
         </script>
         
     </body>
