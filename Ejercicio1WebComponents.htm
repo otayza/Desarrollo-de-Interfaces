@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Componentes Web. Ejercicio 1</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <wc-blink></wc-blink>
+
+        <script>
+            class WcBlink extends HTMLElement{
+                constructor (baseColor, alternativeColor, changeInterval){
+                    super();
+                    this.baseColor="inherit";
+                    this.alternativeColor="transparent";
+
+                    this.textContent="Hola mundo";
+                    var obj=this;
+
+                    var int1=setInterval(function(){
+                        if(obj.style.color=="green"){
+                            obj.style.color="red";
+                        }else{
+                            obj.style.color="green";
+                        }
+                    },1000);
+                }
+            }
+
+
+            customElements.define("wc-blink",WcBlink);
+        </script>
+        
+    </body>
+</html>
