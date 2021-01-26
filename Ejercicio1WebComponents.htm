@@ -17,7 +17,7 @@
         </style>
     </head>
     <body>
-        <wc-blink id="componente"></wc-blink>
+        <wc-blink id="componente" changeInterval=4></wc-blink>
 
         <script>
             class WcBlink extends HTMLElement{
@@ -61,6 +61,10 @@
 
                 get getChangeInterval(){
                     return this.changeInterval;
+                }
+
+                connectedCallback(){
+                    window.alert("Se ha iniciado el componente web");
                 }
             }
 
