@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Componentes Web. Ejercicio 3</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <element-details>
+        </element-details>
+        
+        <script>
+          class WcBlink extends HTMLElement{
+              baseColor="inherit";
+              alternativeColor="transparent";
+              changeInterval=1;
+
+              constructor (){
+                  super();
+                  this.innerHTML="<h2>Texto de Componente Web</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pellentesque pharetra ex, at aliquet est. Quisque hendrerit molestie dictum. Sed ac quam in felis consequat facilisis. Sed porttitor eget enim at tincidunt. Vivamus accumsan, mi nec rhoncus molestie, magna est euismod massa, vitae viverra justo mauris eget magna. Maecenas consequat, dui vel semper viverra, mauris lacus dapibus mauris, iaculis ullamcorper arcu lectus in dolor. Cras sit amet semper neque. Morbi sit amet neque eget nunc ultrices sollicitudin. Nunc massa libero, elementum a ex ac, molestie mollis tortor. Nam et mattis urna. Integer aliquam maximus mi, vitae venenatis metus facilisis eu. Duis nec est id odio bibendum convallis et vitae ligula. </p>";
+                  var obj=this;
+
+                  var int1=setInterval(function(){
+                      if(obj.getAttribute("style")=="color:"+obj.baseColor){
+                          obj.setAttribute("style","color:"+obj.alternativeColor);
+                      }else{
+                          obj.setAttribute("style","color:"+obj.baseColor);
+                      }
+                  },this.changeInterval*1000);
+              }
+
+              set setBaseColor(color){
+                  this.baseColor=color;
+              }
+
+              set setAlternativeColor(color){
+                  this.alternativeColor=color;
+              }
+
+              get getBaseColor(){
+                  return this.baseColor;
+              }
+
+              get getAlternativeColor(){
+                  return this.alternativeColor;
+              }
+
+              set setChangeInterval(tiempo){
+                  this.changeInterval=tiempo;
+              }
+
+              get getChangeInterval(){
+                  return this.changeInterval;
+              }
+
+              connectedCallback(){
+                  document.write("Hola")
+              }
+          }
+
+
+
+
+          
+          
+      </script>
+    </body>
+</html>
