@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Componentes Web. Ejercicio 8</title>
+        <meta charset="UTF-8">
+        <style>
+            input{
+                width: 100%;
+                border: transparent;
+                background-color: transparent;
+                transition: all 2s;
+            }
+            div{
+                border: 1px solid;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <progress-bar></progress-bar>
+
+        <script>
+            class ProgressBar extends HTMLElement{
+                constructor(){
+                    super();
+                    this.innerHTML="<button id='b1'>Aceptar</button><button id='b2'>Parar</button><br><div><input type='text' id='barra'></div>";
+                }
+
+                connectedCallback(){
+                    var barra=document.getElementById("barra");
+                    var boton1=document.getElementById("b1");
+                    var boton2=document.getElementById("b2");
+                    var int1;
+
+                    barra.onclick=function(){
+                        barra.style.backgroundColor="transparent";
+                        barra.value="";
+                        clearInterval(int1);
+                    }
+
+                    boton1.onclick=function(){
+                        if(barra.value==0||isNaN(barra.value)){
+                            window.alert("Escriba un número mayor que 0");
+                        }else{
+                            barra.style.transition="all 0s";
+                            var ancho=0;
+                            barra.style.width=ancho+"%";
+                            barra.style.transition="all 0.5s";
+                            var incremento=100/barra.value;
+                            
+                            int1=setInterval(function(){
+                                if(ancho>=100){
+                                    clearInterval(int1);
+                                }
+
+                                barra.style.width=ancho+"%";
+                                barra.value=Math.trunc(ancho)+"%";
+                                barra.style.backgroundColor="aquamarine";
+                                ancho=ancho+incremento;
+                            },1000);
+                        }
+                    }
+
+                    boton2.onclick=function(){
+                        clearInterval(int1);
+                    }
+                }
+            }
+
+            customElements.define("progress-bar",ProgressBar);
+        </script>
+    </body>
+</html>
