@@ -51,15 +51,14 @@
                                 if(ancho>=100){
                                     clearInterval(int1);
                                 }
-
-                                barra.style.width=ancho+"%";
-                                barra.value=Math.trunc(ancho)+"%";
-                                barra.style.backgroundColor="aquamarine";
-                                ancho=ancho+incremento;
+                                    barra.style.width=ancho+"%";
+                                    barra.value=Math.trunc(ancho)+"%";
+                                    barra.style.backgroundColor="aquamarine";
+                                    ancho=ancho+incremento;
+                                
                             },1000);
                         }
                     }
-
                     boton2.onclick=function(){
                         clearInterval(int1);
                     }
