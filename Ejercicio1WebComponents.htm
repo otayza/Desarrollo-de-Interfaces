@@ -31,8 +31,7 @@
                     var obj=this;
 
                     var int1=setInterval(function(){
-                        if(obj.getAttribute("style")=="color:"+obj.baseColor){
-                            obj.setAttribute("style","color:"+obj.alternativeColor);
+                        if(this.getAttribute("style")=="color:"+this.baseColor){
                         }else{
                             obj.setAttribute("style","color:"+obj.baseColor);
                         }
