@@ -48,6 +48,7 @@
                     }
 
                     boton1.onclick=function(){
+                        clearInterval(int1);
                         if(segundos<0||isNaN(segundos)){
                             window.alert("Escriba un mayor o igual que 0");
                         }else if(segundos==0){
