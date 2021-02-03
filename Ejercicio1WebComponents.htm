@@ -17,7 +17,7 @@
         </style>
     </head>
     <body>
-        <wc-blink id="componente"></wc-blink>
+        <wc-blink id="componente" changeInterval=4></wc-blink>
 
         <script>
             class WcBlink extends HTMLElement{
@@ -31,8 +31,7 @@
                     var obj=this;
 
                     var int1=setInterval(function(){
-                        if(obj.getAttribute("style")=="color:"+obj.baseColor){
-                            obj.setAttribute("style","color:"+obj.alternativeColor);
+                        if(this.getAttribute("style")=="color:"+this.baseColor){
                         }else{
                             obj.setAttribute("style","color:"+obj.baseColor);
                         }
@@ -61,6 +60,10 @@
 
                 get getChangeInterval(){
                     return this.changeInterval;
+                }
+
+                connectedCallback(){
+                    window.alert("Se ha iniciado el componente web");
                 }
             }
 
