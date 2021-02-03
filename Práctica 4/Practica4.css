@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://unpkg.com/nes.css@latest/css/nes.min.css");
+
+*{
+    transition: all 1s;
+}
+
+#contenedor{
+    background-image: url("./Imagenes/paisaje.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+div{
+    width: 50%;
+    height: 100%;
+    transition: all 1s;
+}
+
+#menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    float: left;
+}
+
+button{
+    font-size: 1.75rem;
+    height: 20%;
+    width: 50%;
+}
+
+#texto{
+    float: right;
+    background-image: url("./Imagenes/pollo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#jugar{
+    height: 100%;
+    width: 100%;
+    font-size: 4rem;
+}
