@@ -12,9 +12,9 @@
     height: 100%;
 }
 
-div{
+#menu,#texto{
     width: 50%;
-    height: 100%;
+    height: 90%;
     transition: all 1s;
 }
 
@@ -44,4 +44,18 @@ button{
     height: 100%;
     width: 100%;
     font-size: 4rem;
+}
+
+#titulo{
+    height: 10%;
+    width: 100%;
+    font-style: oblique;
+    text-align: center;
+    font-size: 3rem;
+}
+
+img{
+    height: 63%;
+    position: relative;
+    bottom: 20%;
 }

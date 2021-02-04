@@ -1,4 +1,48 @@
 var dificultad=["FÁCIL","DIFÍCIL","HARCORE"];
+var audio=["Componentes/audio1.mp3","Componentes/audio2.mp3","Componentes/audio3.mp3"];
+
+function crearPollo(){
+    ele=document.createElement("img");
+    ele.style.width="15%";
+    ele.style.height="30%";
+    ele.src="./Imagenes/pollo.png";
+    ele.id="pollo";
+    ele.style.transition="display 0.5s";
+    ele.onclick=function(){
+        numero=Math.floor(Math.random()*3);
+        console.log(numero);
+        var sonido=new Audio(audio[numero]);
+        sonido.play();
+        this.style.display="none";
+    }
+    return ele;
+}
+
+function jugar(){
+    contenedor=document.querySelector("#contenedor");
+    contenedor.innerHTML="";
+    c1=tiempo();
+    contenedor.append(c1);
+    pollo=crearPollo();
+    document.querySelector("#contenedor").append(pollo);
+    var int1=setInterval(function(){
+        pollo.style.display="none";
+        pollo=crearPollo();
+        document.querySelector("#contenedor").append(pollo);
+        pollo.style.position="relative";
+        posicion1=Math.random()*65+1;
+        posicion2=Math.random()*80+1;
+        pollo.style.top=posicion1+"%";
+        pollo.style.left=posicion2+"%";
+    },1000);
+}
+
+function tiempo(){
+    cajatiempo=document.createElement("div");
+    cajatiempo.innerHTML="1:00";
+    cajatiempo.style.width="100%";
+    return cajatiempo;
+}
 
 function borrarTexto(){
     var texto=document.getElementById("texto");

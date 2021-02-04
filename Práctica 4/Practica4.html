@@ -4,11 +4,13 @@
         <title>Matapollos V.0</title>
         <script src="./Practica4.js"></script>
         <meta charset="UTF-8">
+        <link rel="shortcut icon" href="./Imagenes/iconopollo.png" />
     </head>
     <body>
         <div id="contenedor">
+        <div id="titulo" onclick="document.querySelector('#texto').innerHTML=''">MataPollos V.0<img src="./Imagenes/iconopollo.png"></div>
         <div id="menu">
-            <boton-jugar></boton-jugar>
+            <boton-jugar onclick="jugar()"></boton-jugar>
             <button onclick="instrucciones()">Instrucciones</button>
             <button onclick="seleccionarDificultad()">Dificultad</button>
             <button onclick="borrarTexto()">Conoce al creador</button>
