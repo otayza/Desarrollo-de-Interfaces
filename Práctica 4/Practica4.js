@@ -1,12 +1,31 @@
 var dificultad=["FÁCIL","DIFÍCIL","HARCORE"];
 var audio=["Componentes/audio1.mp3","Componentes/audio2.mp3","Componentes/audio3.mp3"];
-
+var contador=0;
 function crearPollo(){
-    ele=document.createElement("img");
-    ele.style.width="15%";
-    ele.style.height="30%";
-    ele.src="./Imagenes/pollo.png";
+    ele=document.createElement("div");
+    ele.style.width="10%";
+    ele.style.height="20%";
+    ele.style.backgroundImage="url(./Imagenes/pollo.png)";
     ele.id="pollo";
+    ele.style.backgroundSize="cover";
+    ele.style.transition="display 0.5s";
+    ele.onclick=function(){
+        numero=Math.floor(Math.random()*3);
+        console.log(numero);
+        var sonido=new Audio(audio[numero]);
+        sonido.play();
+        this.style.display="none";
+    }
+    return ele;
+}
+
+function crearPolloVolador(){
+    ele=document.createElement("div");
+    ele.style.width="10%";
+    ele.style.height="20%";
+    ele.style.backgroundImage="url(./Imagenes/volandob.png)";
+    ele.id="pollo";
+    ele.style.backgroundSize="cover";
     ele.style.transition="display 0.5s";
     ele.onclick=function(){
         numero=Math.floor(Math.random()*3);
@@ -24,23 +43,33 @@ function jugar(){
     c1=tiempo();
     contenedor.append(c1);
     pollo=crearPollo();
+    pollov=crearPolloVolador();
     document.querySelector("#contenedor").append(pollo);
     var int1=setInterval(function(){
-        pollo.style.display="none";
-        pollo=crearPollo();
-        document.querySelector("#contenedor").append(pollo);
-        pollo.style.position="relative";
-        posicion1=Math.random()*65+1;
-        posicion2=Math.random()*80+1;
-        pollo.style.top=posicion1+"%";
-        pollo.style.left=posicion2+"%";
-    },1000);
+        if((contador%5)==0){
+            console.log(contador);
+            pollo.style.display="none";
+            pollo=crearPollo();
+            document.querySelector("#contenedor").append(pollo);
+            pollo.style.position="relative";
+            posicion1=Math.random()*55+1;
+            posicion2=Math.random()*80+1;
+            pollo.style.top=70+"%";
+            pollo.style.left=posicion2+"%";
+        }
+        pollov.style.display="none";
+        pollov.style.transition="position 1s";
+        pollov=crearPolloVolador();
+        document.querySelector("#contenedor").append(pollov);
+        pollov.style.position="relative";
+        posicion1=Math.random()*55+1;
+        pollov.style.left=posicion1+"%";
+        contador++;
+    },1250);
 }
 
 function tiempo(){
-    cajatiempo=document.createElement("div");
-    cajatiempo.innerHTML="1:00";
-    cajatiempo.style.width="100%";
+    cajatiempo=document.createElement("tiempo-juego");
     return cajatiempo;
 }
 
@@ -128,3 +157,35 @@ class BotonJugar extends HTMLElement{
 }
 
 customElements.define('boton-jugar', BotonJugar);
+
+class TiempoJuego extends HTMLElement{
+    constructor(){
+        super();
+    }
+
+    connectedCallback(){
+        this.innerHTML="<div id=tiempo></div>";
+        tiempo=document.getElementById("tiempo");
+        tiempo.style.width="10%";
+        tiempo.style.height="10%";
+        tiempo.style.fontSize="2rem";
+        tiempo.innerHTML="1:00";
+        var segundos=59;
+        let int2=setInterval(function(){
+            tiempo.innerHTML="0:"+segundos;
+            if(segundos<10){
+                tiempo.innerHTML="0:0"+segundos;
+                tiempo.style.color="red";
+            }
+            if(segundos==0){
+                window.alert("Se acabó el tiempo");
+                clearInterval(int2);
+            }
+            
+            segundos--;
+            
+        },1000);
+    }
+}
+
+customElements.define('tiempo-juego', TiempoJuego);
