@@ -1,13 +1,18 @@
 var dificultad=["FÁCIL","DIFÍCIL","HARCORE"];
 var audio=["Componentes/audio1.mp3","Componentes/audio2.mp3","Componentes/audio3.mp3"];
 var contador=0;
-posicionv=0;
+var contador2=0;
+var puntos=0;
+var ele="";
+var req1;
+var int1;
+
 function crearPollo(){
     ele=document.createElement("div");
     ele.style.width="10%";
     ele.style.height="20%";
     ele.style.backgroundImage="url(./Imagenes/pollo.png)";
-    ele.id="pollo";
+    ele.id="pollot";
     ele.style.backgroundSize="cover";
     ele.style.transition="all 1s ease 1s";
     ele.onclick=function(){
@@ -15,23 +20,7 @@ function crearPollo(){
         var sonido=new Audio(audio[numero]);
         sonido.play();
         this.style.display="none";
-    }
-    return ele;
-}
-
-function crearPolloVolador(){
-    ele=document.createElement("div");
-    ele.style.width="6.25%";
-    ele.style.height="12.5%";
-    ele.style.backgroundImage="url(./Imagenes/volandoa.png)";
-    ele.id="pollov";
-    ele.style.backgroundSize="cover";
-    ele.style.transition="all 1s ease 1s";
-    ele.onclick=function(){
-        numero=Math.floor(Math.random()*3);
-        var sonido=new Audio(audio[numero]);
-        sonido.play();
-        this.style.display="none";
+        puntos=puntos+10;
     }
     return ele;
 }
@@ -39,33 +28,55 @@ function crearPolloVolador(){
 function jugar(){
     contenedor=document.querySelector("#contenedor");
     contenedor.innerHTML="";
+
+    var ele=new Pollo(true);
+    var validador=2;
+    contenedor.appendChild(ele.getPollo);
+    var posicion=ele.getPosicion;
+    
+    window.requestAnimationFrame(step);
+
+    function step() {
+        posicion=posicion+ele.incremento;
+        ele.getPollo.style.left = posicion+"%";
+        if (contador2<150) {
+            req1=window.requestAnimationFrame(step);
+            contador2++;
+        }else{
+        if(document.getElementById("pollo")){
+            contenedor.removeChild(document.getElementById("pollo"));
+        }else{
+            puntos=puntos+5;
+        }
+        validador++;
+        ele=new Pollo(validador%2==0);
+        contenedor.appendChild(ele.getPollo);
+        contador2=0; 
+        req1=window.requestAnimationFrame(step);
+           
+        }
+    }
+
+    
     c1=tiempo();
     contenedor.append(c1);
     pollo=crearPollo();
-    pollov=crearPolloVolador();
-    setInterval(function(){
-        /*if((contador%5)==0){
+    int1=setInterval(function(){
+        if((contador%5)==0){
             pollo=crearPollo();
             document.querySelector("#contenedor").append(pollo);
             pollo.style.position="absolute";
             posicion2=Math.random()*80+1;
-            pollo.style.top=70+"%";
+            pollo.style.top=75+"%";
             pollo.style.left=posicion2+"%";
             setTimeout(function(){
                 contenedor.removeChild(pollo);
-            },500);
-        }*/
-        pollov.style.transition="position 1s";
-        pollov.style.position="relative";
-        pollov.style.left=posicionv+"%";
-        if(posicionv>95){
-            posicionv=0;
-            contenedor.removeChild(pollov);
-        }else{
-            posicionv=posicionv+10;
+            },2000);
         }
         contador++;
     },600);
+
+
 }
 
 function tiempo(){
@@ -73,7 +84,7 @@ function tiempo(){
     return cajatiempo;
 }
 
-function borrarTexto(){
+function mostrarInfo(){
     var texto=document.getElementById("texto");
     texto.innerHTML="";
     var cuadro=crearCuadro();
@@ -141,8 +152,6 @@ class BotonJugar extends HTMLElement{
         var ele=document.createElement("button");
         ele.innerHTML="Jugar";
         ele.id="jugar";
-        
-        
 
         this.append(ele);
         var obj=this;
@@ -178,8 +187,11 @@ class TiempoJuego extends HTMLElement{
                 tiempo.style.color="red";
             }
             if(segundos==0){
-                window.alert("Se acabó el tiempo");
+                cancelAnimationFrame(req1);
+                clearInterval(int1);
                 clearInterval(int2);
+                window.alert("Se acabó el tiempo. Puntos= "+puntos);
+                location.reload();
             }
             
             segundos--;
