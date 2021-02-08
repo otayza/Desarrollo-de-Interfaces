@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            #caja{
+                width: 5%;
+                height: 10%;
+                position: absolute;
+                top:50%;
+                left: 0;
+                background-image: url("./Imagenes/volandob.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                transition: all 1s;
+            }
+
+            #caja2{
+                top: 25%;
+            }
+
+           
+        </style>
+    </head>
+    <body>
+        <div id="padre">
+            <div id="caja"></div>
+            <div id="caja2"></div>
+        </div>
+        <script src="./prueba2.js"></script>
+        <script>
+            document.body.appendChild(new Pollo(0).getPollo);
+            var start = null;
+            var element = document.getElementById('pollo');
+            var posicion=element.posicion;
+            var req1;
+
+            function step() {
+            posicion=posicion+element.incremento;
+            element.style.left = posicion+"%";
+            if (posicion<90) {
+                req1=window.requestAnimationFrame(step);
+            }else{
+                cancelAnimationFrame(req1);
+            }
+            }
+
+            window.requestAnimationFrame(step);
+
+            
+        </script>
+    </body>
+</html>

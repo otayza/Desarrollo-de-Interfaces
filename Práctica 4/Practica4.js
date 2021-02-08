@@ -1,6 +1,7 @@
 var dificultad=["FÁCIL","DIFÍCIL","HARCORE"];
 var audio=["Componentes/audio1.mp3","Componentes/audio2.mp3","Componentes/audio3.mp3"];
 var contador=0;
+posicionv=0;
 function crearPollo(){
     ele=document.createElement("div");
     ele.style.width="10%";
@@ -8,10 +9,9 @@ function crearPollo(){
     ele.style.backgroundImage="url(./Imagenes/pollo.png)";
     ele.id="pollo";
     ele.style.backgroundSize="cover";
-    ele.style.transition="display 0.5s";
+    ele.style.transition="all 1s ease 1s";
     ele.onclick=function(){
         numero=Math.floor(Math.random()*3);
-        console.log(numero);
         var sonido=new Audio(audio[numero]);
         sonido.play();
         this.style.display="none";
@@ -21,15 +21,14 @@ function crearPollo(){
 
 function crearPolloVolador(){
     ele=document.createElement("div");
-    ele.style.width="10%";
-    ele.style.height="20%";
-    ele.style.backgroundImage="url(./Imagenes/volandob.png)";
-    ele.id="pollo";
+    ele.style.width="6.25%";
+    ele.style.height="12.5%";
+    ele.style.backgroundImage="url(./Imagenes/volandoa.png)";
+    ele.id="pollov";
     ele.style.backgroundSize="cover";
-    ele.style.transition="display 0.5s";
+    ele.style.transition="all 1s ease 1s";
     ele.onclick=function(){
         numero=Math.floor(Math.random()*3);
-        console.log(numero);
         var sonido=new Audio(audio[numero]);
         sonido.play();
         this.style.display="none";
@@ -44,28 +43,29 @@ function jugar(){
     contenedor.append(c1);
     pollo=crearPollo();
     pollov=crearPolloVolador();
-    document.querySelector("#contenedor").append(pollo);
-    var int1=setInterval(function(){
-        if((contador%5)==0){
-            console.log(contador);
-            pollo.style.display="none";
+    setInterval(function(){
+        /*if((contador%5)==0){
             pollo=crearPollo();
             document.querySelector("#contenedor").append(pollo);
-            pollo.style.position="relative";
-            posicion1=Math.random()*55+1;
+            pollo.style.position="absolute";
             posicion2=Math.random()*80+1;
             pollo.style.top=70+"%";
             pollo.style.left=posicion2+"%";
-        }
-        pollov.style.display="none";
+            setTimeout(function(){
+                contenedor.removeChild(pollo);
+            },500);
+        }*/
         pollov.style.transition="position 1s";
-        pollov=crearPolloVolador();
-        document.querySelector("#contenedor").append(pollov);
         pollov.style.position="relative";
-        posicion1=Math.random()*55+1;
-        pollov.style.left=posicion1+"%";
+        pollov.style.left=posicionv+"%";
+        if(posicionv>95){
+            posicionv=0;
+            contenedor.removeChild(pollov);
+        }else{
+            posicionv=posicionv+10;
+        }
         contador++;
-    },1250);
+    },600);
 }
 
 function tiempo(){
