@@ -71,7 +71,7 @@ function jugar(){
             contador2++;
         }else{
         if(document.getElementById("pollo")){
-            contenedor.removeChild(document.getElementById("pollo"));
+            contenedor.removeChild(ele.getPollo);
         }else{
             puntos=puntos+5;
             modificarPuntos(puntos);
@@ -79,9 +79,8 @@ function jugar(){
         validador++;
         ele=new Pollo(validador%2==0);
         contenedor.appendChild(ele.getPollo);
-        contador2=0; 
         req1=window.requestAnimationFrame(step);
-           
+        contador2=0; 
         }
     }
 
