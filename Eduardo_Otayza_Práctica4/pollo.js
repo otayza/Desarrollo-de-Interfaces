@@ -1,8 +1,8 @@
 
             class Pollo{
-                direccionPollo=["url('./Imagenes/volandoa.png')","url(./Imagenes/volandob.png)"];
+                direccionPollo=["url('./Multimedia/volandoa.png')","url(./Multimedia/volandob.png)"];
                 pollo=document.createElement("div");
-                audio=["Componentes/audio1.mp3","Componentes/audio2.mp3","Componentes/audio3.mp3"];
+                audio=["Multimedia/audio1.mp3","Multimedia/audio2.mp3","Multimedia/audio3.mp3"];
                 numero=Math.floor(Math.random()*65+5);
 
                 constructor(direccion){
@@ -42,6 +42,7 @@
                     this.pollo.style.position="absolute";
                     this.pollo.style.left=this.getPosicion+"%"; 
                     this.pollo.style.top=this.numero+"%";
+                    
                     var audio=this.audio;
                     this.pollo.onclick=function(){
                         var numero=Math.floor(Math.random()*3);

@@ -1,8 +1,9 @@
 var dificultad=["FÁCIL","DIFÍCIL","HARCORE"];
-var nivel="";
-var audio=["Componentes/audio1.mp3","Componentes/audio2.mp3","Componentes/audio3.mp3"];
+var nivel=dificultad[0];
+var audio=["Multimedia/audio1.mp3","Multimedia/audio2.mp3","Multimedia/audio3.mp3"];
 var contador=0;
 var contador2=0;
+var incrementoPuntos=0;
 var contenedor="";
 var puntos=0;
 var ele="";
@@ -22,17 +23,18 @@ function crearPuntos(){
 }
 
 function modificarPuntos(puntos){
-    cuadroPuntos.innerHTML=puntos+" / 200";
-    if(puntos>200){
+    cuadroPuntos.innerHTML=puntos+" / 150";
+    if(puntos>=150){
         cuadroPuntos.style.color="green";
     }
 }
 
 function crearPollo(){
+
     ele=document.createElement("div");
     ele.style.width="10%";
     ele.style.height="20%";
-    ele.style.backgroundImage="url(./Imagenes/pollo.png)";
+    ele.style.backgroundImage="url(./Multimedia/pollo.png)";
     ele.id="pollot";
     ele.style.backgroundSize="cover";
     ele.style.transition="all 1s ease 1s";
@@ -41,7 +43,7 @@ function crearPollo(){
         var sonido=new Audio(audio[numero]);
         sonido.play();
         this.style.display="none";
-        puntos=puntos+10;
+        puntos=puntos+(incrementoPuntos*2);
         modificarPuntos(puntos);
         
     }
@@ -49,8 +51,17 @@ function crearPollo(){
 }
 
 function jugar(){
+    if(nivel==dificultad[0]){
+        incrementoPuntos=5;
+    }else if(nivel==dificultad[1]){
+        incrementoPuntos=4;
+    }else{
+        incrementoPuntos=3;
+    }
+
     contenedor=document.querySelector("#contenedor");
     contenedor.innerHTML="";
+    contenedor.style.cursor="url('./Multimedia/target_opt.png'),pointer";
 
     cuadroPuntos=crearPuntos();
     contenedor.append(cuadroPuntos);
@@ -72,7 +83,7 @@ function jugar(){
         if(document.getElementById("pollo")){
             contenedor.removeChild(ele.getPollo);
         }else{
-            puntos=puntos+5;
+            puntos=puntos+incrementoPuntos;
             modificarPuntos(puntos);
         }
         validador++;
@@ -121,7 +132,7 @@ function mostrarInfo(){
 
 function crearCuadro(){
     let ele=document.createElement("div");
-    ele.style.backgroundImage="url('./Imagenes/madera.jpg')";
+    ele.style.backgroundImage="url('./Multimedia/madera.jpg')";
     ele.style.position="relative";
     ele.style.top="5%";
     ele.style.left="5%";
@@ -130,7 +141,7 @@ function crearCuadro(){
     ele.style.fontSize="2.25rem";
     ele.style.textAlign="center";
     ele.style.paddingTop="50px";
-    ele.style.color="yellow";
+    ele.style.color="greenyellow";
     return ele;
 }
 
@@ -226,14 +237,15 @@ class TiempoJuego extends HTMLElement{
                 cancelAnimationFrame(req1);
                 clearInterval(int1);
                 clearInterval(int2);
-                window.alert("Se acabó el tiempo. Puntos= "+puntos);
+                var textoFinal=puntos>150?puntos+"/150. Enhorabuena, ¡has ganado!":puntos+"/150. Vaya, no has ganado";
+                window.alert("Se acabó el tiempo. Puntos= "+textoFinal);
                 location.reload();
             }
             
             if(segundos==40){
-                contenedor.style.backgroundImage="url('Imagenes/paisajetarde.jpg')";
+                contenedor.style.backgroundImage="url('Multimedia/paisajetarde.jpg')";
             }else if(segundos==20){
-                contenedor.style.backgroundImage="url('Imagenes/paisajenoche.jpg')";
+                contenedor.style.backgroundImage="url('Multimedia/paisajenoche.jpg')";
             }
 
             segundos--;

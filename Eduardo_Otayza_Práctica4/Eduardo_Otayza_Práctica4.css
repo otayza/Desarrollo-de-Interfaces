@@ -6,7 +6,7 @@
 }
 
 #contenedor{
-    background-image: url("./Imagenes/paisaje.jpg");
+    background-image: url("./Multimedia/paisaje.jpg");
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -38,7 +38,7 @@ button{
 
 #texto{
     float: right;
-    background-image: url("./Imagenes/pollo.png");
+    background-image: url("./Multimedia/pollo.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
