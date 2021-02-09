@@ -49,7 +49,6 @@ function crearPollo(){
 }
 
 function jugar(){
-    console.log(nivel);
     contenedor=document.querySelector("#contenedor");
     contenedor.innerHTML="";
 
@@ -66,8 +65,8 @@ function jugar(){
     function step() {
         posicion=posicion+ele.incremento;
         ele.getPollo.style.left = posicion+"%";
-        if (contador2<110) {
-            req1=window.requestAnimationFrame(step);
+        if (contador2<175) {
+                req1=window.requestAnimationFrame(step);
             contador2++;
         }else{
         if(document.getElementById("pollo")){
@@ -78,6 +77,7 @@ function jugar(){
         }
         validador++;
         ele=new Pollo(validador%2==0);
+        posicion=ele.getPosicion;
         contenedor.appendChild(ele.getPollo);
         req1=window.requestAnimationFrame(step);
         contador2=0; 
@@ -101,7 +101,7 @@ function jugar(){
             },1000);
         }
         contador++;
-    },300);
+    },1000);
 
 
 }
