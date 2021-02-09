@@ -18,6 +18,10 @@
     transition: all 1s;
 }
 
+div{
+    color: greenyellow;
+}
+
 #menu{
     display: flex;
     flex-direction: column;

@@ -1,11 +1,32 @@
 var dificultad=["FÁCIL","DIFÍCIL","HARCORE"];
+var nivel="";
 var audio=["Componentes/audio1.mp3","Componentes/audio2.mp3","Componentes/audio3.mp3"];
 var contador=0;
 var contador2=0;
+var contenedor="";
 var puntos=0;
 var ele="";
 var req1;
 var int1;
+var cuadroPuntos="";
+
+function crearPuntos(){
+    let ele=document.createElement("div");
+    ele.style.height="10%";
+    ele.innerHTML="0 / 200";
+    ele.style.position="absolute";
+    ele.style.fontSize="2rem";
+    ele.style.left="80%";
+    ele.style.top="0%";
+    return ele;
+}
+
+function modificarPuntos(puntos){
+    cuadroPuntos.innerHTML=puntos+" / 200";
+    if(puntos>200){
+        cuadroPuntos.style.color="green";
+    }
+}
 
 function crearPollo(){
     ele=document.createElement("div");
@@ -21,13 +42,19 @@ function crearPollo(){
         sonido.play();
         this.style.display="none";
         puntos=puntos+10;
+        modificarPuntos(puntos);
+        
     }
     return ele;
 }
 
 function jugar(){
+    console.log(nivel);
     contenedor=document.querySelector("#contenedor");
     contenedor.innerHTML="";
+
+    cuadroPuntos=crearPuntos();
+    contenedor.append(cuadroPuntos);
 
     var ele=new Pollo(true);
     var validador=2;
@@ -39,7 +66,7 @@ function jugar(){
     function step() {
         posicion=posicion+ele.incremento;
         ele.getPollo.style.left = posicion+"%";
-        if (contador2<150) {
+        if (contador2<110) {
             req1=window.requestAnimationFrame(step);
             contador2++;
         }else{
@@ -47,6 +74,7 @@ function jugar(){
             contenedor.removeChild(document.getElementById("pollo"));
         }else{
             puntos=puntos+5;
+            modificarPuntos(puntos);
         }
         validador++;
         ele=new Pollo(validador%2==0);
@@ -71,10 +99,10 @@ function jugar(){
             pollo.style.left=posicion2+"%";
             setTimeout(function(){
                 contenedor.removeChild(pollo);
-            },2000);
+            },1000);
         }
         contador++;
-    },600);
+    },300);
 
 
 }
@@ -127,6 +155,15 @@ function niveles(numero){
     ele.style.width="75%";
     ele.innerHTML=dificultad[numero];
     ele.style.backgroundColor="yellow";
+    ele.onclick=function(){
+        ele.style.backgroundColor="green";
+        for(let i=0;i<ele.parentNode.childNodes.length;i++){
+            if(i!=numero){
+                ele.parentNode.childNodes[i].style.backgroundColor="yellow";
+            }
+        }
+        nivel=dificultad[numero];
+    }
     if(numero==2){
         ele.style.color="red";
     }
@@ -194,6 +231,12 @@ class TiempoJuego extends HTMLElement{
                 location.reload();
             }
             
+            if(segundos==40){
+                contenedor.style.backgroundImage="url('Imagenes/paisajetarde.jpg')";
+            }else if(segundos==20){
+                contenedor.style.backgroundImage="url('Imagenes/paisajenoche.jpg')";
+            }
+
             segundos--;
             
         },1000);
